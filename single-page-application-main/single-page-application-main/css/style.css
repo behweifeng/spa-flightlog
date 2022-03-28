@@ -90,7 +90,7 @@ body {
 .content {
     width: 100vw;
     height: 86vh;
-    background: #ccc url('../img/bg2.jpg') no-repeat fixed center;
+    background: #ccc url('../img/bg.jpg') no-repeat fixed center;
     display: none;
     align-items: center;
     justify-content: center;
