@@ -206,6 +206,7 @@ function tableFromJson() {
             }
 
             var table = document.createElement("table");
+            table.id = "flightTable";
             table.border = "1px solid black";
 
             var tr = table.insertRow(-1);                  
@@ -238,8 +239,10 @@ function tableFromJson() {
                 v += "<option value='" + myFlights[i]["_id"] + "'>" + (i+1) + "</option>"
             }
             flightsListData.innerHTML = v;
+            document.getElementById('flightIdInput').style.display = 'flex';
 
             } else {
+                document.getElementById('flightIdInput').style.display = 'none';
                 var divShowData = document.getElementById('showData');
                 divShowData.innerHTML = "There are no flight records.";
             }
@@ -253,5 +256,27 @@ function tableFromJson() {
 
 
 }
+
+function flightidSearchFunction() {
+    // Declare variables
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("flightIdInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("flightTable");
+    tr = table.getElementsByTagName("tr");
+  
+    // Loop through all table rows, and hide those who don't match the search query
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[2];
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+  }
 
 checkLoged();
