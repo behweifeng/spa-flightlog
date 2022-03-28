@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Log SPA</title>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans">
+    <link rel="shortcut icon" href="./img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://kit.fontawesome.com/372ad6816f.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header>
+        <nav class="navigation" id="navigation">
+            <section class="menu">
+                <div class="display" onclick="displayFlightLogs()">
+                    <i class="fas fa-table"></i>
+                    Display Flight Logs
+                </div>
+                <div class="create" onclick="createFlightNav()">
+                    <i class="fas fa-plane-departure"></i>
+                    Create Flight
+                </div>
+            </section>
+            <section class="user" id="user" onclick="showUser()">
+                <i class="fas fa-user-circle"></i>
+                <div class="logout" id="logout" onclick="logOut()">
+                    <span>Sign Out
+                        <i class="fas fa-sign-out-alt"></i>
+                    </span>
+                </div>
+            </section>
+        </nav>
+    </header>
+
+    <main>
+        <section class="login" id="login">
+            <h1>Flight Log SPA</h1>
+            <form>
+                <fieldset>                  
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" placeholder="Username" autofocus><br>
+                        
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password">
+                        
+                    <input type="button" id="login" class="btn-login" value="LOGIN" onclick="logIn()">
+                </fieldset>
+            </form>
+        </section>
+
+        <section class="content" id="dispFlightContent">
+            <div class="div-container">
+                
+                <p id='showData'></p>
+            
+                <form>
+                    <label for="flights">Flight S/N:</label>
+                    <select id="selectedFlightSN" name="selectedFlightSN">
+                    </select>
+                    <input type="button" value="Update" onclick="updateFlightNav()">
+                    <input type="button" value="Delete" onclick="delRequest()">
+                    <input type="button" value="Create" onclick="createFlightNav()">
+                  </form>
+            </div>
+        </section>
+        <section class="content" id="createFlightContent">
+            <div class="div-container">
+                <form id="#newFlightRecordForm">
+                    <label for="tailNumber">Tail Number</label><br>
+                    <input type="text" id="tailNumber" name="tailNumber" placeholder="aa888"><br>
+                    <label for="flightID">Flight ID</label><br>
+                    <input type="text" id="flightID" name="flightID" placeholder="sq111"><br>
+                    <label for="takeoff">Take Off Time</label><br>
+                    <!-- <input type="datetime-local" step=".001" id="takeoff-time"
+       name="takeoff-time" value="2022-01-01T00:00:00"
+       min="2000-01-01T00:00:00" max="2030-01-01T00:00:00"> -->
+                    <input type="text" id="takeoff" name="takeoff" placeholder="2022-01-01T08:00:00.000Z"><br>
+                    <label for="landing">Landing Time</label><br>
+                    <input type="text" id="landing" name="landing" placeholder="2022-01-01T20:00:00.000Z"><br>
+                    <label for="Duration">Duration</label><br>
+                    <input type="text" id="duration" name="duration" placeholder="120"><br><br>
+                    <input type="button" value="Create Flight Log" onclick="createFlight()">
+                  </form> 
+            </div>
+        </section>
+        <section class="content" id="updateFlightContent">
+            <div class="div-container">
+                <form id="#updateFlightRecordForm">
+                    <label for="tailNumber">Tail Number</label><br>
+                    <input type="text" id="tailNumberUF" name="tailNumber" value=""><br>
+                    <label for="flightID">Flight ID</label><br>
+                    <input type="text" id="flightIDUF" name="flightID" value=""><br>
+                    <label for="takeoff">Take Off Time</label><br>
+                    <input type="text" id="takeoffUF" name="takeoff" value=""><br>
+                    <label for="landing">Landing Time</label><br>
+                    <input type="text" id="landingUF" name="landing" value=""><br>
+                    <label for="Duration">Duration</label><br>
+                    <input type="text" id="durationUF" name="duration" value=""><br><br>
+                    <input type="button" value="Update Flight Log" onclick="updateFlight()">
+                  </form> 
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>SPA Flight Log - Beh Wei Feng</p>
+    </footer>
+
+    <script src="./js/index.js"></script>
+</body>
+</html>
