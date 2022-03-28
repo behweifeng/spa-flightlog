@@ -91,6 +91,7 @@ body {
     width: 100vw;
     height: 86vh;
     background: #ccc url('../img/bg.jpg') no-repeat fixed center;
+    background-size: cover;
     display: none;
     align-items: center;
     justify-content: center;
